@@ -26,3 +26,59 @@ Users should be able to:
 - [x] @nuxtjs/tailwindcss
 - [x] @nuxtjs/google-fonts
 - [x] @sidebase/nuxt-auth
+
+## UI Components
+
+- Buttons
+  - [ ] All button states for
+    - [ ] Primary
+    - [ ] Secondary
+    - [ ] Border Button
+- Form
+  - [ ] Input
+    - [ ] Icon Pre
+    - [ ] Icon Post
+    - [ ] Validation
+- [ ] Icons
+- [ ] Logo
+- [ ] Menu Bar
+- Modals
+  - [ ] Delete Modal
+  - [ ] Archive Modal
+- [ ] Page Header
+  - [ ] Contrls
+- [ ] Sidebar
+  - [ ] Notes
+  - [ ] Navigation
+  - [ ] Settings Menu
+  - [ ] Menu Bar
+- [ ] Toast
+
+## App Feature Sections
+- Auth
+  - [ ] Login
+  - [ ] Forgot Password
+  - [ ] Reset Your Password
+  - [ ] Signup
+- Modals
+  - [ ] Archive Notes
+  - [ ] Delete Note
+- Notes
+  - [ ] All notes
+    - [ ] Empty State
+  - [ ] Archived notes
+    - [ ] Empty State
+  - [ ] Create new note
+- [ ] Archived Notes
+- [ ] Tag Selected
+- Search
+  - [ ] Archived note
+  - [ ] Empty state
+- Settings
+  - [ ] Color Theme
+  - [ ] Font Options
+  - [ ] Change Password
+- Template/Layouts
+  - Dark & Light Mode
+    - [ ] Auth
+    - [ ] App
