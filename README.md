@@ -56,10 +56,10 @@ Users should be able to:
 
 ## App Feature Sections
 - Auth
-  - [ ] Login
-  - [ ] Forgot Password
-  - [ ] Reset Your Password
-  - [ ] Signup
+  - [x] Login
+  - [x] Forgot Password
+  - [x] Reset Your Password
+  - [x] Signup
 - Modals
   - [ ] Archive Notes
   - [ ] Delete Note
