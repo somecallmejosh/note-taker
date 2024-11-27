@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './**/*.{js,vue,ts}',
+    './components/**/*.{vue,ts}',
+    './layouts/**/*.{vue,ts}',
+    './pages/**/*.{vue,ts}',
   ],
   theme: {
     fontFamily: {
-      body: ["Inter", "sans-serif"],
+      default: ["Inter", "sans-serif"],
+      serif: ["Merriweather", "serif"],
+      monospace: ["Fira Code", "monospace"],
     },
     extend: {},
   },

@@ -16,15 +16,16 @@ Users should be able to:
 - [ ] View the optimal layout based on their device's screen size
 - [ ] See hover and focus states for all interactive elements on the page
 - [ ] Save details to a database
-- [ ] Create an account, log in, change password
-- [ ] Reset their password (add password reset to the full-stack app)
+- [x] Create an account, log in, change password
+- [x] Reset their password (add password reset to the full-stack app)
 
 ## Add Modules
-- [x] @pinia/nuxt
-- [x] @nuxtjs/supabase
-- [x] @nuxtjs/tailwindcss
-- [x] @nuxtjs/google-fonts
-- [x] @sidebase/nuxt-auth
+- [x] `@pinia/nuxt`
+- [x] `@nuxtjs/supabase`
+- [x] `@nuxtjs/tailwindcss`
+- [x] `@nuxtjs/google-fonts`
+- [x] `@sidebase/nuxt-auth`
+- [x] `@nuxt/ui`
 
 ## UI Components
 - Buttons

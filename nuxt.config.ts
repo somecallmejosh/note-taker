@@ -10,13 +10,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@pinia/nuxt',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@nuxtjs/supabase',
+    '@nuxt/ui',
   ],
   googleFonts: {
     families: {
       Inter: true,
+      Merriweather: true,
+      'Fira Code': true,
     },
   },
   tailwindcss: {

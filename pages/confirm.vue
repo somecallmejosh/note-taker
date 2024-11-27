@@ -10,5 +10,8 @@ watch(user, () => {
 </script>
 
 <template>
-  <div>Waiting for login...</div>
+  <auth-wrapper>
+    <auth-header title="Confirmation" subTitle="Please login to continue" />
+    <div>Waiting for login...</div>
+  </auth-wrapper>
 </template>

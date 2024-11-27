@@ -1,7 +1,13 @@
 <script setup>
-const router = useRouter()
+definePageMeta({
+  layout: 'auth'
+})
+const { showPassword, togglePasswordVisibility } = usePasswordVisibility()
 const client = useSupabaseClient()
-const email = ref('')
+const state = ref({
+  password: '',
+  passwordConfirmation: '',
+})
 const successMessage = ref('')
 const errors = ref('')
 async function updatePassword() {
@@ -19,23 +25,44 @@ async function updatePassword() {
 }
 </script>
 <template>
-  <form @submit.prevent="updatePassword">
-    <label for="email">
-      Password
-    </label>
-    <input
-        v-model="email"
-        type="password"
-      />
-    <button>
-      Submit New Password
-    </button>
-  </form>
-  <div v-if="errors">
-    {{ errors }}
-  </div>
-  <div v-if="successMessage">
-    <p>{{ successMessage }}</p>
-    <NuxtLink to="/login">Login</NuxtLink>
-  </div>
+  <auth-wrapper>
+    <auth-header title="Reset Your Password" subTitle="Choose a new password to secure your account." />
+    <UForm :state="state" class="space-y-8" @submit="updatePassword">
+            <UFormGroup label="Password" name="password" required>
+        <UInput :ui="{ icon: { trailing: { pointer: '' } } }" :type="showPassword ? 'text' : 'password'" v-model="state.password">
+          <template #trailing>
+            <UButton
+              variant="link"
+              :icon="showPassword ? 'i-heroicons-eye-slash' : 'i-heroicons-eye'"
+              @click="togglePasswordVisibility"
+            />
+          </template>
+        </UInput>
+        <template #help>
+          <UIcon name="i-heroicons-information-circle" /> At least 8 characters
+        </template>
+      </UFormGroup>
+      <UFormGroup label="Confirm Password" name="passwordConfirmation" required>
+        <UInput :ui="{ icon: { trailing: { pointer: '' } } }" :type="showPassword ? 'text' : 'password'" v-model="state.passwordConfirmation">
+          <template #trailing>
+            <UButton
+              variant="link"
+              :icon="showPassword ? 'i-heroicons-eye-slash' : 'i-heroicons-eye'"
+              @click="togglePasswordVisibility"
+            />
+          </template>
+        </UInput>
+      </UFormGroup>
+      <UButton type="submit" block>
+        Reset password
+      </UButton>
+    </UForm>
+    <div v-if="errors">
+      {{ errors }}
+    </div>
+    <div v-if="successMessage">
+      <p>{{ successMessage }}</p>
+      <ULink class="underline hover:no-underline" to="/login">Login</ULink>
+    </div>
+  </auth-wrapper>
 </template>
