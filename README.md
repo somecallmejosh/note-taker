@@ -1,7 +1,6 @@
-# Note-taking web app
+# Note-taking Web App
 
 ## Specifications:
-
 Users should be able to:
 
 - [ ] Create, read, update, and delete notes
@@ -28,7 +27,6 @@ Users should be able to:
 - [x] @sidebase/nuxt-auth
 
 ## UI Components
-
 - Buttons
   - [ ] All button states for
     - [ ] Primary
