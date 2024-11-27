@@ -28,7 +28,7 @@ async function updatePassword() {
   <auth-wrapper>
     <auth-header title="Reset Your Password" subTitle="Choose a new password to secure your account." />
     <UForm :state="state" class="space-y-8" @submit="updatePassword">
-            <UFormGroup label="Password" name="password" required>
+      <UFormGroup label="Password" name="password" required>
         <UInput :ui="{ icon: { trailing: { pointer: '' } } }" :type="showPassword ? 'text' : 'password'" v-model="state.password">
           <template #trailing>
             <UButton
@@ -39,7 +39,9 @@ async function updatePassword() {
           </template>
         </UInput>
         <template #help>
-          <UIcon name="i-heroicons-information-circle" /> At least 8 characters
+          <div class="flex items-center gap-1">
+            <UIcon name="i-heroicons-information-circle" /> At least 8 characters
+          </div>
         </template>
       </UFormGroup>
       <UFormGroup label="Confirm Password" name="passwordConfirmation" required>

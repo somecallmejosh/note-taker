@@ -44,7 +44,9 @@ async function signUp() {
           </template>
         </UInput>
         <template #help>
-          <UIcon name="i-heroicons-information-circle" /> At least 8 characters
+          <div class="flex items-center gap-1">
+            <UIcon name="i-heroicons-information-circle" /> At least 8 characters
+          </div>
         </template>
       </UFormGroup>
       <UButton type="submit" block>
