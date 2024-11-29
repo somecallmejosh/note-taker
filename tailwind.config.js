@@ -8,6 +8,7 @@ export default {
   theme: {
     fontFamily: {
       default: ["Inter", "sans-serif"],
+      sans: ["Inter", "sans-serif"],
       serif: ["Merriweather", "serif"],
       monospace: ["Fira Code", "monospace"],
     },

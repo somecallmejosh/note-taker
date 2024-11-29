@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
+  extends: ['@nuxt/ui-pro'],
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/google-fonts',
