@@ -51,21 +51,21 @@
     },
     {
       label: 'Settings',
-      to: '/settings/color-theme',
+      to: '/settings',
       icon: 'i-heroicons-cog'
     },
   ]
 </script>
 <template>
-    <div class="flex w-screen h-screen lg:divide-x">
-    <aside class="hidden lg:block lg:basis-[272px] lg:shrink-0 lg:h-screen overflow-y-auto p-4">
+  <div class="flex flex-1 h-dvh lg:divide-x">
+    <aside class="hidden lg:flex lg:flex-col lg:basis-[272px] lg:shrink-0 overflow-y-auto p-4">
       <Logo class="mb-6" />
       <UVerticalNavigation :links="links" />
       <UDivider class="my-6" />
       <p class="mb-4 text-sm text-neutral-500">Tags</p>
       <UVerticalNavigation :links="tags" />
     </aside>
-    <div class="relative flex flex-col flex-1 lg:overflow-y-auto lg:h-screen bg-neutral-100 lg:bg-white">
+    <div class="relative flex flex-col flex-1 overflow-y-auto bg-neutral-100 lg:bg-white">
       <header class="flex items-center w-full px-8 lg:sticky lg:top-0 h-14 md:h-16 lg:h-20 lg:border-b shrink-0 lg:bg-white">
         <Logo class="lg:hidden" />
         <div class="hidden lg:flex lg:flex-1">
@@ -76,7 +76,7 @@
           </ULink>
         </div>
       </header>
-      <main class="flex-1 overflow-y-scroll bg-white rounded-t-2xl lg:rounded-none">
+      <main class="flex flex-1 overflow-y-scroll bg-white rounded-t-2xl lg:rounded-none">
         <slot name="main" />
       </main>
       <footer class="flex py-4 bg-white border-t shadow-lg lg:hidden shrink-0">

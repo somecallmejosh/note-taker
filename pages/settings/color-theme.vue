@@ -1,4 +1,8 @@
+<script setup>
+  import Back from './components/back.vue'
+</script>
 <template>
+  <Back />
   <h1>Change Color Theme</h1>
   <ul>
     <li>

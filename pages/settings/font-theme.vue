@@ -1,3 +1,9 @@
+<script setup>
+  import Back from './components/back.vue'
+</script>
 <template>
-  <h1>Change Font Theme</h1>
+  <div>
+    <Back />
+    <h1>Change Font Theme</h1>
+  </div>
 </template>
