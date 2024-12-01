@@ -30,6 +30,7 @@ async function signUp() {
   <auth-wrapper>
     <auth-header title="Create Your Account" subTitle="Sign up to start organizing your notes and boost your productivity." />
     <UForm :state="state" class="space-y-8" @submit="signUp">
+      <UAlert v-if="errorMsg" :description="errorMsg" variant="outline" color="red" />
       <UFormGroup label="Email Address" name="email" required>
         <UInput type="email" v-model="state.email" />
       </UFormGroup>

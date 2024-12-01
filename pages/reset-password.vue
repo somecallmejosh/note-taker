@@ -26,6 +26,7 @@ async function resetPassword() {
   <auth-wrapper>
     <auth-header title="Forgotten your password?" subTitle="Enter your email below, and we’ll send you a link to reset it." />
     <UForm :state="state" class="space-y-8" @submit="resetPassword">
+      <UAlert v-if="errorMsg" :description="errorMsg" variant="outline" color="red" />
       <UFormGroup label="Email Address" name="email" required>
         <UInput type="email" v-model="state.email" />
       </UFormGroup>

@@ -13,8 +13,8 @@ const errorMsg = ref('')
 async function signIn() {
   try {
     const { error } = await client.auth.signInWithPassword({
-      email: state.email, // Use .value here because state is a ref
-      password: state.password, // Use .value here because state is a ref
+      email: state.email,
+      password: state.password,
     })
     if (error) {
       throw error
@@ -30,6 +30,7 @@ async function signIn() {
 <auth-wrapper>
   <auth-header title="Welcome to Note" subTitle="Please login to continue" />
   <UForm :state="state" class="space-y-8" @submit="signIn">
+    <UAlert v-if="errorMsg" :description="errorMsg" variant="outline" color="red" />
     <UFormGroup label="Email Address" name="email" required>
       <UInput type="email" v-model="state.email" />
     </UFormGroup>

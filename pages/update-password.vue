@@ -9,7 +9,7 @@ const state = ref({
   passwordConfirmation: '',
 })
 const successMessage = ref('')
-const errors = ref('')
+const errorMsg = ref('')
 async function updatePassword() {
   try {
     const { data, error } = await client.auth.updateUser({
@@ -20,7 +20,7 @@ async function updatePassword() {
     }
     successMessage.value = 'Password updated'
   } catch(error) {
-    errors.value = error.message
+    errorMsg.value = error.message
   }
 }
 </script>
@@ -28,6 +28,7 @@ async function updatePassword() {
   <auth-wrapper>
     <auth-header title="Reset Your Password" subTitle="Choose a new password to secure your account." />
     <UForm :state="state" class="space-y-8" @submit="updatePassword">
+      <UAlert v-if="errorMsg" :description="errorMsg" variant="outline" color="red" />
       <UFormGroup label="Password" name="password" required>
         <UInput :ui="{ icon: { trailing: { pointer: '' } } }" :type="showPassword ? 'text' : 'password'" v-model="state.password">
           <template #trailing>
