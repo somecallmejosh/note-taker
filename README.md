@@ -34,12 +34,21 @@ Users should be able to:
     - [ ] Secondary
     - [ ] Border Button
 - Form
-  - [ ] Input
-    - [ ] Icon Pre
-    - [ ] Icon Post
+  - [x] Input
+    - [x] Icon Pre
+    - [x] Icon Post
     - [ ] Validation
 - [ ] Icons
-- [ ] Logo
+  - [x] Copy SVG's into project
+  - [x] Convert to components (batch rename to vue files)
+  - [x] Wrap all SVG's in template tags
+```
+for file in *.vue; do
+  sed -i '' '1s/^/<template>\n/; $a\
+</template>' "$file"
+done
+```
+- [x] Logo
 - [ ] Menu Bar
 - Modals
   - [ ] Delete Modal
