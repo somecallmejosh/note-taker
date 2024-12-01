@@ -3,22 +3,22 @@
   const links = [{
     label: 'Color Theme',
     to: '/settings/color-theme',
-    icon: 'i-heroicons-sun'
+    icon: 'local-sun'
   }, {
     label: 'Font Theme',
     to: '/settings/font-theme',
-    icon: 'i-heroicons-swatch'
+    icon: 'local-font'
   }, {
     label: 'Password',
     to: '/settings/change-password',
-    icon: 'i-heroicons-lock-closed'
+    icon: 'local-lock'
   }]
 </script>
 <template>
   <UVerticalNavigation :links="links">
     <template #default="{ link }">
       <span class="relative">{{ link.label }}</span>
-      <UIcon v-if="link.to == route.fullPath" name="i-heroicons-chevron-right" class="vertical-nav-chevron" />
+      <icon-chevron-right v-if="link.to == route.fullPath" class="vertical-nav-chevron"/>
     </template>
   </UVerticalNavigation>
 </template>

@@ -37,11 +37,10 @@ async function signIn() {
     <UFormGroup label="Password" name="password" required>
       <UInput :ui="{ icon: { trailing: { pointer: '' } } }" :type="showPassword ? 'text' : 'password'" v-model="state.password">
         <template #trailing>
-          <UButton
-            variant="link"
-            :icon="showPassword ? 'i-heroicons-eye-slash' : 'i-heroicons-eye'"
-            @click="togglePasswordVisibility"
-          />
+          <button @click.prevent="togglePasswordVisibility">
+            <icon-show-password v-if="!showPassword" />
+            <icon-hide-password v-else />
+          </button>
         </template>
       </UInput>
       <template #hint>

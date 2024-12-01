@@ -17,6 +17,6 @@
 </template>
 <style>
 .vertical-nav-chevron {
-  @apply absolute right-2 transition-transform transform;
+  @apply absolute right-1 transition-transform transform;
 }
 </style>

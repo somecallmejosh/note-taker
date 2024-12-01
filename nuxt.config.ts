@@ -15,6 +15,14 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxt/ui',
   ],
+  icon: {
+    customCollections: [
+      {
+        prefix: 'local',
+        dir: './assets/icons',
+      },
+    ],
+  },
   googleFonts: {
     families: {
       Inter: true,
