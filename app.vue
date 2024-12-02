@@ -1,6 +1,10 @@
-<script setup lang="ts">
-const colorMode = useColorMode()
+<script setup>
+import { useFontStore } from '~/stores/useFontStore'
+const fontStore = useFontStore()
+const { selectedFont } = storeToRefs(fontStore)
+const { setFont } = fontStore
 
+const colorMode = useColorMode()
 const color = computed(() => colorMode.value === 'dark' ? '#111827' : 'white')
 
 useHead({
@@ -29,17 +33,22 @@ useSeoMeta({
   twitterImage: 'https://dashboard-template.nuxt.dev/social-card.png',
   twitterCard: 'summary_large_image'
 })
+
+onMounted(() => {
+ fontStore.setFont(localStorage.getItem('fontPreference') || 'font-sans')
+})
+
 </script>
 
 <template>
-  <div>
-    <NuxtLoadingIndicator />
-
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-
-    <UNotifications />
-    <UModals />
-  </div>
+  <client-only>
+    <div :class="selectedFont">
+      <NuxtLoadingIndicator />
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+      <UNotifications />
+      <UModals />
+    </div>
+  </client-only>
 </template>

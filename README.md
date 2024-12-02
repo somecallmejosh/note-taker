@@ -9,8 +9,8 @@ Users should be able to:
 - [ ] View all archived notes
 - [ ] View notes with specific tags
 - [ ] Search notes by title, tag, and content
-- [ ] Select their color theme
-- [ ] Select their font theme
+- [x] Select their color theme
+- [x] Select their font theme
 - [ ] Receive validation messages if required form fields aren't completed
 - [ ] Navigate the whole app and perform all actions using only their keyboard
 - [ ] View the optimal layout based on their device's screen size
@@ -40,16 +40,8 @@ Users should be able to:
     - [ ] Validation
 - [ ] Icons
   - [x] Copy SVG's into project
-  - [x] Convert to components (batch rename to vue files)
-  - [x] Wrap all SVG's in template tags
-```
-for file in *.vue; do
-  sed -i '' '1s/^/<template>\n/; $a\
-</template>' "$file"
-done
-```
 - [x] Logo
-- [ ] Menu Bar
+- [x] Menu Bar
 - Modals
   - [ ] Delete Modal
   - [ ] Archive Modal
@@ -83,10 +75,10 @@ done
   - [ ] Archived note
   - [ ] Empty state
 - Settings
-  - [ ] Color Theme
-  - [ ] Font Options
+  - [x] Color Theme
+  - [x] Font Options
   - [ ] Change Password
 - Template/Layouts
   - Dark & Light Mode
     - [ ] Auth
-    - [ ] App
+    - [x] App

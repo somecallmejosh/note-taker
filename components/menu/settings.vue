@@ -18,7 +18,7 @@
   <UVerticalNavigation :links="links">
     <template #default="{ link }">
       <span class="relative">{{ link.label }}</span>
-      <icon-chevron-right v-if="link.to == route.fullPath" class="vertical-nav-chevron"/>
+      <UIcon v-if="link.to == route.fullPath" name="local-chevron-right" class="relative vertical-nav-chevron size-6"/>
     </template>
   </UVerticalNavigation>
 </template>
