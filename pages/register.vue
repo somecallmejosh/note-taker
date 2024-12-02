@@ -39,14 +39,15 @@ async function signUp() {
           <template #trailing>
             <UButton
               variant="link"
-              :icon="showPassword ? 'i-heroicons-eye-slash' : 'i-heroicons-eye'"
+              :icon="showPassword ? 'local-hide-password' : 'local-show-password'"
+              class="text-gray-500 -translate-x-2 size-5"
               @click="togglePasswordVisibility"
             />
           </template>
         </UInput>
         <template #help>
           <div class="flex items-center gap-1">
-            <UIcon name="i-heroicons-information-circle" /> At least 8 characters
+            <UIcon name="local-info" /> At least 8 characters
           </div>
         </template>
       </UFormGroup>

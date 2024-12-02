@@ -32,17 +32,17 @@
   const footerLinks = [{
     label: 'Home',
     to: '/',
-    icon: 'i-heroicons-home'
+    icon: 'local-home'
   }, {
     label: 'search',
     to: '',
     action: () => alert('search'),
-    icon: 'i-heroicons-magnifying-glass'
+    icon: 'local-search'
   },
     {
       label: 'Archived',
       to: '/archived',
-      icon: 'i-heroicons-archive-box-arrow-down'
+      icon: 'local-archive'
     },
     {
       label: 'Tags',
@@ -52,7 +52,7 @@
     {
       label: 'Settings',
       to: '/settings',
-      icon: 'i-heroicons-cog'
+      icon: 'local-settings'
     },
   ]
 </script>

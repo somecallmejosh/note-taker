@@ -38,8 +38,7 @@ async function signIn() {
       <UInput :ui="{ icon: { trailing: { pointer: '' } } }" :type="showPassword ? 'text' : 'password'" v-model="state.password">
         <template #trailing>
           <button @click.prevent="togglePasswordVisibility">
-            <icon-show-password v-if="!showPassword" />
-            <icon-hide-password v-else />
+            <UIcon :name="showPassword ? 'local-hide-password' : 'local-show-password'" class="size-5 translate-y-0.5" />
           </button>
         </template>
       </UInput>
