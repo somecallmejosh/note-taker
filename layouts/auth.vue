@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center h-screen px-6 overflow-scroll bg-neutral-100 lg:px-0">
+  <div class="flex items-center justify-center px-6 overflow-scroll h-dvh bg-neutral-100 lg:px-0">
     <NuxtRouteAnnouncer />
     <UCard class="w-full max-w-[40rem]">
       <div class="py-8 space-y-8">
