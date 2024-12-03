@@ -2,31 +2,31 @@
   const links = [{
     label: 'All Notes',
     icon: 'local-home',
-    to: '/getting-started/installation'
+    to: '/'
   }, {
     label: 'Archived Notes',
     icon: 'local-archive',
-    to: '/components/vertical-navigation'
+    to: '/archived'
   }]
 
   const tags = [{
     label: 'Ruby on Rails',
     icon: 'local-tag',
-    to: '/getting-started/installation'
+    to: '/tags'
   }, {
     label: 'Nuxt.js',
     icon: 'local-tag',
-    to: '/components/vertical-navigation'
+    to: '/tags'
   },
   {
     label: 'Vue.js',
     icon: 'local-tag',
-    to: '/components/vertical-navigation'
+    to: '/tags'
   },
   {
     label: 'CSS',
     icon: 'local-tag',
-    to: '/components/vertical-navigation'
+    to: '/tags'
   }]
 
   const footerLinks = [{
