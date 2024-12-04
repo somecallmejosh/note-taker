@@ -23,7 +23,7 @@
   ]
 </script>
 <template>
-  <Back />
+  <button-back-link to="/settings" text="Settings" />
   <h1 class="font-semibold">Change Color Theme</h1>
   <p class="mb-6">Choose your color theme:</p>
   <ul class="flex flex-col w-full max-w-xl gap-4">

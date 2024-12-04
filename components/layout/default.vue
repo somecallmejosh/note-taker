@@ -2,7 +2,7 @@
   const links = [{
     label: 'All Notes',
     icon: 'local-home',
-    to: '/'
+    to: '/notes'
   }, {
     label: 'Archived Notes',
     icon: 'local-archive',
@@ -12,26 +12,26 @@
   const tags = [{
     label: 'Ruby on Rails',
     icon: 'local-tag',
-    to: '/tags'
+    to: '/tagged/ruby-on-rails'
   }, {
     label: 'Nuxt.js',
     icon: 'local-tag',
-    to: '/tags'
+    to: '/tagged/nuxt'
   },
   {
     label: 'Vue.js',
     icon: 'local-tag',
-    to: '/tags'
+    to: '/tagged/vue'
   },
   {
     label: 'CSS',
     icon: 'local-tag',
-    to: '/tags'
+    to: '/tagged/css'
   }]
 
   const footerLinks = [{
     label: 'Home',
-    to: '/',
+    to: '/notes',
     icon: 'local-home'
   }, {
     label: 'search',
@@ -59,7 +59,10 @@
 <template>
   <div class="flex flex-1 h-dvh lg:divide-x dark:divide-neutral-700 ">
     <aside class="hidden lg:flex lg:flex-col lg:basis-[272px] lg:shrink-0 overflow-y-auto p-4">
-      <Logo class="mb-6" />
+      <NuxtLink to="/">
+        <div class="sr-only">Return to home page</div>
+        <Logo class="mb-6" />
+      </NuxtLink>
       <UVerticalNavigation :links="links" />
       <UDivider class="my-6" />
       <p class="mb-4 text-sm text-neutral-500">Tags</p>
@@ -67,7 +70,10 @@
     </aside>
     <div class="relative flex flex-col flex-1 overflow-y-auto bg-neutral-100 lg:bg-white dark:bg-gray-900 dark:lg:bg-gray-900 ">
       <header class="flex items-center w-full px-8 lg:sticky lg:top-0 h-14 md:h-16 lg:h-20 lg:border-b shrink-0 lg:bg-white dark:lg:bg-gray-900 dark:border-neutral-700">
-        <Logo class="lg:hidden" />
+        <NuxtLink to="/">
+          <div class="sr-only">Return to home page</div>
+          <Logo class="lg:hidden" />
+        </NuxtLink>
         <div class="hidden lg:flex lg:flex-1">
           <slot name="header" />
           <ULink to="/settings/color-theme" class="ml-auto">

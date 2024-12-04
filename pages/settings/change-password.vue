@@ -30,7 +30,7 @@
   }
 </script>
 <template>
-  <Back />
+  <button-back-link to="/settings" text="Settings" />
   <h1 class="mb-6 font-semibold">Change Password</h1>
     <UForm :state="state" class="space-y-8" @submit.prevent="updatePassword">
       <UAlert v-if="errorMsg" :description="errorMsg" variant="outline" color="red" />

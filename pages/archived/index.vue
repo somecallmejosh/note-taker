@@ -1,6 +1,6 @@
 <template>
   <div class="lg:hidden">
-    <menu-notes :notes="notesStore.activeNotesMenu" />
+    <menu-notes :notes="notesStore.archivedNotesMenu" />
   </div>
 </template>
 
