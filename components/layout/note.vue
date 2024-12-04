@@ -1,4 +1,6 @@
 <script setup>
+  const client = useSupabaseClient()
+  const user = useSupabaseUser()
   const props = defineProps({
     note: {
       type: Object,
@@ -9,16 +11,30 @@
   const route = useRoute()
 
   const state = ref({
-    id: props.note.id || null,
     title: props.note.title || 'Enter a title...',
     content: props.note.content || 'Enter your note here...',
-    tags: props.note.tags || [],
+    tags: props.note.tags || null,
     is_archived: props.note.is_archived || false,
     last_edited: props.note.last_edited || null,
   })
+
+  const submit = async () => {
+    console.log('submitting note...')
+    const { data, error } = await client
+      .from('notes')
+      .insert([
+        {
+          title: state.value.title,
+          user_id: user.value?.id,
+          tags: ['one', 'two'],
+          content: state.value.content,
+        },
+      ])
+      .select()
+  }
 </script>
 <template>
-  <div class="flex flex-col justify-between flex-1 h-full gap-6 divide-y dark:divide-neutral-700">
+  <form @submit.prevent="submit" class="flex flex-col justify-between flex-1 h-full gap-6 divide-y dark:divide-neutral-700">
     <div class="space-y-2">
       <div class="pb-2 text-xl font-bold">
         <input v-model="state.title" class="text-xl font-bold" placeholder="Add tags&hellip;" />
@@ -55,8 +71,8 @@
       <textarea v-model="state.content" class="block w-full h-full transition-all duration-150 bg-transparent focus:p-4" placeholder="Enter your note here&hellip;"></textarea>
     </div>
     <div class="flex items-center gap-2 pt-4">
-      <UButton>Save Note</UButton>
-      <UButton color="gray">Cancel</UButton>
+      <UButton type="submit">Save Note</UButton>
+      <UButton type="button" color="gray">Cancel</UButton>
     </div>
-  </div>
+  </form>
 </template>
