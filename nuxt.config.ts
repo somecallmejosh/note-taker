@@ -14,6 +14,8 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxtjs/supabase',
     '@nuxt/ui',
+    'nuxt-tiptap-editor',
+    '@vueuse/nuxt',
   ],
   icon: {
     customCollections: [
@@ -39,8 +41,11 @@ export default defineNuxtConfig({
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
   },
+  tiptap: {
+    prefix: 'Tiptap', //prefix for Tiptap components
+  },
   // set root path to /notes
   routeRules: {
-    '/': { redirect: '/notes' },
+    '/': { redirect: '/notes/active' },
   },
 })

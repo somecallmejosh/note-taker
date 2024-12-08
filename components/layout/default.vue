@@ -1,37 +1,34 @@
-<script setup lang="ts">
+<script setup>
+
+  const client = useSupabaseClient()
+  const user = useSupabaseUser()
+  let { data: notes, error } = await client
+    .from('notes')
+    .select("*")
+    .eq('is_archived', false)
+    .eq('user_id', user.value.id)
+
+  const uniqueTags = [...new Set(notes?.flatMap(item => item.tags))].sort()
+
   const links = [{
     label: 'All Notes',
     icon: 'local-home',
-    to: '/notes'
+    to: '/notes/active'
   }, {
     label: 'Archived Notes',
     icon: 'local-archive',
-    to: '/archived'
+    to: '/notes/archived'
   }]
 
-  const tags = [{
-    label: 'Ruby on Rails',
-    icon: 'local-tag',
-    to: '/tagged/ruby-on-rails'
-  }, {
-    label: 'Nuxt.js',
-    icon: 'local-tag',
-    to: '/tagged/nuxt'
-  },
-  {
-    label: 'Vue.js',
-    icon: 'local-tag',
-    to: '/tagged/vue'
-  },
-  {
-    label: 'CSS',
-    icon: 'local-tag',
-    to: '/tagged/css'
-  }]
+  const tags = uniqueTags.map(tag => ({
+    label: tag,
+    to: `/notes/tags/${tag}`,
+    icon: 'local-tag'
+  }))
 
   const footerLinks = [{
     label: 'Home',
-    to: '/notes',
+    to: '/notes/active',
     icon: 'local-home'
   }, {
     label: 'search',
@@ -41,12 +38,12 @@
   },
     {
       label: 'Archived',
-      to: '/archived',
+      to: '/notes/archived',
       icon: 'local-archive'
     },
     {
       label: 'Tags',
-      to: '/tags',
+      to: '/notes/tags',
       icon: 'local-tag'
     },
     {
