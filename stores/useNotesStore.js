@@ -6,6 +6,7 @@ export const useNotesStore = defineStore('notes', {
     allNotes: [],
     archivedNotes: [],
     taggedNotes: [],
+    tags: [],
     note: null,
     error: null
   }),
@@ -29,6 +30,7 @@ export const useNotesStore = defineStore('notes', {
           this.error = fetchError.message;
         } else {
           this.allNotes = data;
+          this.setTags();
         }
       } catch (e) {
         this.error = e.message;
@@ -53,6 +55,7 @@ export const useNotesStore = defineStore('notes', {
           this.error = fetchError.message;
         } else {
           this.archivedNotes = data;
+          this.setTags();
         }
       } catch (e) {
         this.error = e.message;
@@ -76,6 +79,7 @@ export const useNotesStore = defineStore('notes', {
 
         if (fetchError) {
           this.error = fetchError.message;
+          this.setTags();
         } else {
           this.taggedNotes = data;
         }
@@ -91,6 +95,10 @@ export const useNotesStore = defineStore('notes', {
           this.error = 'User not logged in';
           return;
         }
+        if (!id) {
+          this.error = 'Invalid note ID';
+          return;
+        }
 
         const { data, error: fetchError } = await client
           .from('notes')
@@ -101,11 +109,28 @@ export const useNotesStore = defineStore('notes', {
         if (fetchError) {
           this.error = fetchError.message;
         } else {
-          this.note = data;
+          this.note = data; // Assign the note object directly
         }
       } catch (e) {
         this.error = e.message;
       }
+    },
+    async setTags() {
+      const user = useSupabaseUser();
+      try {
+        if (!user.value) {
+          this.error = 'User not logged in';
+          return;
+        }
+        const uniqueTags = [...new Set(this.allNotes.flatMap((item) => item.tags))].sort()
+        this.tags = uniqueTags.map((tag) => ({
+          label: tag,
+          to: `/tags/${tag}`,
+          icon: 'local-tag',
+        }))
+      } catch (e) {
+        this.error = e.message;
+      }
     }
-  }
+   }
 });

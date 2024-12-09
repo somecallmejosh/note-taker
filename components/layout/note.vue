@@ -1,5 +1,8 @@
 <script setup>
   import { useDateFormat } from '@vueuse/core'
+  const toast = useToast()
+  const notesStore = useNotesStore()
+  const { fetchNotes, fetchTaggedNotes, fetchNote } = notesStore
 
   const props = defineProps({
     note: {
@@ -56,8 +59,23 @@
   const submit = async () => {
     if (props.context === 'new') {
       await createNote()
+      toast.add({
+        id: 'create_note',
+        title: 'Created',
+        description: 'Your note has been created.',
+        timeout: 5000,
+      })
     } else {
       await updateNote()
+      await fetchNote(props.note.id)
+      await fetchTaggedNotes()
+      await fetchNotes()
+      toast.add({
+        id: 'updated_note',
+        title: 'Updated',
+        description: 'Your note has been updated.',
+        timeout: 5000,
+      })
     }
   }
 </script>

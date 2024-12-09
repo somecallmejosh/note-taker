@@ -46,6 +46,6 @@ export default defineNuxtConfig({
   },
   // set root path to /notes
   routeRules: {
-    '/': { redirect: '/notes/active' },
+    '/': { redirect: '/active' },
   },
 })

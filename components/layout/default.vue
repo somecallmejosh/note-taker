@@ -1,30 +1,31 @@
 <script setup>
+  import { useNotesStore } from '~/stores/useNotesStore'
+  const notesStore = useNotesStore()
+  const {tags, allNotes} = storeToRefs(notesStore)
+  const {fetchNotes, setTags} = notesStore
 
-  const client = useSupabaseClient()
-  const user = useSupabaseUser()
-  let { data: notes, error } = await client
-    .from('notes')
-    .select("*")
-    .eq('is_archived', false)
-    .eq('user_id', user.value.id)
+  onMounted(async () => {
+    if (tags.length === 0) {
+      await setTags()
+    }
 
-  const uniqueTags = [...new Set(notes?.flatMap(item => item.tags))].sort()
+    if (allNotes.length === 0) {
+      await fetchNotes()
+    }
+  })
 
-  const links = [{
-    label: 'All Notes',
-    icon: 'local-home',
-    to: '/notes/active'
-  }, {
-    label: 'Archived Notes',
-    icon: 'local-archive',
-    to: '/notes/archived'
-  }]
-
-  const tags = uniqueTags.map(tag => ({
-    label: tag,
-    to: `/notes/tags/${tag}`,
-    icon: 'local-tag'
-  }))
+  const links = ref([
+    {
+      label: 'All Notes',
+      icon: 'local-home',
+      to: '/active',
+    },
+    {
+      label: 'Archived Notes',
+      icon: 'local-archive',
+      to: '/archived',
+    },
+  ])
 
   const footerLinks = [{
     label: 'Home',
@@ -53,6 +54,7 @@
     },
   ]
 </script>
+
 <template>
   <div class="flex flex-1 h-dvh lg:divide-x dark:divide-neutral-700 ">
     <aside class="hidden lg:flex lg:flex-col lg:basis-[272px] lg:shrink-0 overflow-y-auto p-4">
